@@ -63,7 +63,6 @@ jobs:
           node-version: 24
       - name: Chốt version app
         id: version
-        working-directory: cli
         run: |
           version="${{ inputs.version }}"
           if [ -z "$version" ]; then version=$(npm view @galaxy-stack/blackhole-cli version); fi
