@@ -353,7 +353,7 @@ jobs:
 
   release:
     name: Đăng lên release desktop-v${{ needs.resolve.outputs.version }}
-    needs: [resolve, macos, windows, linux]
+    needs: [resolve, windows, linux]
     if: ${{ always() && needs.resolve.outputs.publish == 'true' && (needs.windows.result == 'success' || needs.linux.result == 'success') }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
