@@ -256,6 +256,9 @@ jobs:
       - name: Tạo/cập nhật release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Job nay KHONG checkout repo, ma gh can ngu canh git => luot 3.0.37 that bai voi
+          # "failed to run git: fatal: not a git repository". GH_REPO chi cho gh repo dich.
+          GH_REPO: ${{ github.repository }}
           TAG: desktop-v${{ needs.resolve.outputs.version }}
         run: |
           notes="App desktop Galaxy Blackhole (macOS arm64/x64, Windows x64, Linux x64) · host harness ${{ needs.resolve.outputs.harness_version }}"
